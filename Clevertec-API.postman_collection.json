@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "2c5ffe2a-fce5-4422-867d-2d6b41c959db",
+		"name": "Clevertec-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26827850",
+		"_collection_link": "https://www.postman.com/avionics-candidate-88918659/workspace/porshelab-system/collection/26827850-2c5ffe2a-fce5-4422-867d-2d6b41c959db?action=share&source=collection_link&creator=26827850"
+	},
+	"item": [
+		{
+			"name": "Создать статью",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Челси выиграл Лигу чемпионов\",\r\n    \"text\": \"Вчера вечером свершилось грандиозное событие для фанатов Лондонского Челси - команда из Лондона переиграла Мадридский реал со счетом 3:0. Поздравляем всех фанатов аристократов.\",\r\n    \"userName\": \"Шкирман Милана Григорьевна\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/news_applications/v1/news",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"news_applications",
+						"v1",
+						"news"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить статью",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/news_applications/v1/news/:id",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"news_applications",
+						"v1",
+						"news",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "107"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Изменить заголовок",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "title",
+						"value": "\"28-12-2023\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 107,\r\n    \"title\": \"Челси выиграл Лигу чемпионов / 28-12-2023\",\r\n    \"text\": \"Вчера вечером свершилось грандиозное событие для фанатов Лондонского Челси - команда из Лондона переиграла Мадридский реал со счетом 3:0. Поздравляем всех фанатов аристократов.\",\r\n    \"userName\": \"Шкирман Милана Григорьевна\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/news_applications/v1/news/107",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"news_applications",
+						"v1",
+						"news",
+						"107"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
